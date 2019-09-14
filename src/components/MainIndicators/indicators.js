@@ -1,3 +1,4 @@
+// this objects can be come from some request into store
 export const indicators = [
     {
         name: 'Income',

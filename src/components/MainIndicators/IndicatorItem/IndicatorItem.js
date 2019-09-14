@@ -4,7 +4,7 @@ import './IndicatorItem.css';
 const IndicatorItem = ({ name, indicator, value, color, subName, percentValue }) => {
     return (
         <div className="IndicatorItem">
-            <div className="name-block">
+            <div className="title-block">
                 <h4>{name}</h4>
                 <h4 className="indicator" style={{ background: `${color}` }}>
                     {indicator}
