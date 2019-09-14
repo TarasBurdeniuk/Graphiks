@@ -1,0 +1,15 @@
+.ScaleItem {
+    width: 350px;
+}
+
+.line {
+    height: 5px;
+    border-radius: 5px;
+    background-color: lightgrey;
+}
+
+.topLine {
+    background: green;
+    height: 100%;
+    border-radius: 5px;
+}

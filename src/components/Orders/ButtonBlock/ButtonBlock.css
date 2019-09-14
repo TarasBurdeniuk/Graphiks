@@ -1,0 +1,28 @@
+.btn {
+    border-bottom: 1px solid lightgrey;
+    border-top: 1px solid lightgrey;
+    text-decoration: none;
+    font-size: 0.5rem;
+    padding: 3px;
+    color: black;
+}
+
+.left {
+    border: 1px solid lightgrey;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+.right {
+    border: 1px solid lightgrey;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.active {
+    background-color: ghostwhite;
+}
+
+.button-group {
+    display: flex;
+}
