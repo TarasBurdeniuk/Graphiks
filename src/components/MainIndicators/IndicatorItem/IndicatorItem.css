@@ -1,5 +1,38 @@
 .IndicatorItem {
-    width: 250px;
-    height: 50px;
-    background: white;
+    min-width: 270px;
+    background: #fff;
+    margin: 10px;
+}
+
+.name-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px 15px 10px;
+    border-bottom: 1px solid ghostwhite;
+}
+
+.indicator {
+    color: #fff;
+    padding: 5px;
+    font-size: 0.5rem;
+    border-radius: 3px;
+}
+
+.value-block {
+    padding: 15px;
+}
+
+.value {
+    font-size: 25px;
+}
+
+.subName {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.subName-title {
+    font-size: 0.5rem;
 }
