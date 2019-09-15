@@ -1,27 +1,27 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import './MainIndicators.css';
-import { indicators } from './indicators';
 import IndicatorItem from './IndicatorItem/IndicatorItem';
 import Loading from '../Loading/Loading';
-import { getIncome } from '../../actions/mainIndicators';
+import { getIncome, getOrders, getUserActivity, getVisits } from '../../actions/mainIndicators';
 
-const MainIndicators = ({ getIncome, income }) => {
+const MainIndicators = ({
+    getIncome,
+    getOrders,
+    getVisits,
+    getUserActivity,
+    income,
+    orders,
+    userActivity,
+    visits,
+}) => {
     useEffect(() => {
         getIncome();
-    }, [getIncome]);
+        getOrders();
+        getUserActivity();
+        getVisits();
+    }, [getIncome, getUserActivity, getVisits, getOrders]);
 
-    const indicatorsItems = indicators.map(item => (
-        <IndicatorItem
-            key={`${item.name}${item.value}`}
-            name={item.name}
-            indicator={item.indicator}
-            value={item.value}
-            color={item.color}
-            subName={item.subName}
-            percentValue={item.percentValue}
-        />
-    ));
     return (
         <div className="MainIndicators">
             {income === null ? (
@@ -29,11 +29,47 @@ const MainIndicators = ({ getIncome, income }) => {
             ) : (
                 <IndicatorItem
                     value={income.value}
-                    subName={income.subName}
+                    subName="Total income"
                     percentValue={income.percentValue}
-                    indicator={income.indicator}
-                    name={income.name}
-                    color={income.color}
+                    indicator="Today"
+                    name="Income"
+                    color="blue"
+                />
+            )}
+            {orders === null ? (
+                <Loading />
+            ) : (
+                <IndicatorItem
+                    value={orders.value}
+                    subName="New orders"
+                    percentValue={orders.percentValue}
+                    indicator="Annual"
+                    name="Orders"
+                    color="brown"
+                />
+            )}
+            {visits === null ? (
+                <Loading />
+            ) : (
+                <IndicatorItem
+                    value={orders.value}
+                    subName="New visits"
+                    percentValue={orders.percentValue}
+                    indicator="Today"
+                    name="Visits"
+                    color="green"
+                />
+            )}
+            {userActivity === null ? (
+                <Loading />
+            ) : (
+                <IndicatorItem
+                    value={userActivity.value}
+                    subName="In first month"
+                    percentValue={userActivity.percentValue}
+                    indicator="Low value"
+                    name="User activity"
+                    color="red"
                 />
             )}
         </div>
@@ -42,10 +78,16 @@ const MainIndicators = ({ getIncome, income }) => {
 
 const mapStateToProps = state => ({
     income: state.mainIndicators.income,
+    orders: state.mainIndicators.orders,
+    visits: state.mainIndicators.visits,
+    userActivity: state.mainIndicators.userActivity,
 });
 
 const mapDispatchToProps = {
     getIncome,
+    getOrders,
+    getVisits,
+    getUserActivity,
 };
 
 export default connect(
